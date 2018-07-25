@@ -1,6 +1,6 @@
 /**
  * @fileoverview Publixe/React navigator component
- * @author Pavel Mach·Ëek <pavex@ines.cz>
+ * @author Pavel Mach√°√®ek <pavex@ines.cz>
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -21,7 +21,7 @@ export default class Navigator extends React.Component {
 
 /**
  * @private
- * @type {array)
+ * @type {Array}
  */
 	_childs = [];
 
