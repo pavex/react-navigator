@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ModalWindow from 'react-ui-modal-window';
+import ModalWindow from 'pavex-react-ui-modal-window';
 
 
 export default class Navigator extends React.Component {

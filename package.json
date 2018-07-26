@@ -1,8 +1,11 @@
 {
-  "name": "react-navigator",
-  "version": "1.0.1",
+  "name": "pavex-react-navigator",
+  "version": "1.0.2",
   "description": "Navigator/Window framework for React app",
   "main": "index.js",
+  "dependencies": {
+    "pavex-react-ui-modal-window": "^1.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
