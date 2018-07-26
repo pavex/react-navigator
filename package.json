@@ -1,6 +1,6 @@
 {
   "name": "pavex-react-navigator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Navigator/Window framework for React app",
   "main": "index.js",
   "dependencies": {
