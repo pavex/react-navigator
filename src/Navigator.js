@@ -36,7 +36,7 @@ export default class Navigator extends React.Component {
  * @param {Object} props
  */
 	_push(component, props) {
-		this._childs.push({component, props});
+		this._childs.push({component, props, ref: null});
 	};
 
 
@@ -71,10 +71,14 @@ export default class Navigator extends React.Component {
 /**
  */
 	close() {
-		this._currentModalWindowRef.close(() => {
-			this._pop();
-			this.forceUpdate();
-		});
+		let index = this._childs.length - 1;
+		if (index >= 0) {
+			let child = this._childs[index];
+			child.ref.close(() => {			
+				this._pop();
+				this.forceUpdate();
+			});
+		}
 	};
 
 
@@ -106,13 +110,6 @@ export default class Navigator extends React.Component {
 
 
 
-/** @private @type {Object} */
-	_currentModalWindowRef;
-
-
-
-
-
 /**
  * @private
  * @param {number} index
@@ -124,10 +121,12 @@ export default class Navigator extends React.Component {
 		const hasChildren = this._childs.length > nextIndex;
 //
 		return (
-			<ModalWindow ref={(ref) => {this._currentModalWindowRef = ref}}>	
-				{this._createComponent(child.component, {...child.props, ...{navigator: this}})}
+			<div>
+				<ModalWindow ref={ref => child.ref = ref}>	
+					{this._createComponent(child.component, {...child.props, ...{navigator: this}})}
+				</ModalWindow>
 				{hasChildren ? this._renderIndex(nextIndex) : null}
-			</ModalWindow>
+			</div>
 		);
 	}
 
