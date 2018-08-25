@@ -99,7 +99,7 @@ export default class Navigator extends React.Component {
 
 /**
  */	
-	_createComponent(component, props) {
+	createComponent(component, props) {
 		if (this.props.createComponent) {
 			return this.props.createComponent.call(this, component, props);
 		}
@@ -123,7 +123,7 @@ export default class Navigator extends React.Component {
 		return (
 			<div>
 				<ModalWindow ref={ref => child.ref = ref}>	
-					{this._createComponent(child.component, {...child.props, ...{navigator: this}})}
+					{this.createComponent(child.component, {...child.props, ...{navigator: this}})}
 				</ModalWindow>
 				{hasChildren ? this._renderIndex(nextIndex) : null}
 			</div>
@@ -153,7 +153,7 @@ export default class Navigator extends React.Component {
 	render() {
 		return (
 			<div className='ui-navigator'>
-				{this._createComponent(this.props.initialComponent, {navigator: this})}
+				{this.createComponent(this.props.initialComponent, {navigator: this})}
 				{this._renderChilds()}
 			</div>
 		);
